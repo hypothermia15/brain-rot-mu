@@ -1,0 +1,41 @@
+/* Brain Rot mu? — web sunumu */
+:root { --bg:#0f1115; --fg:#ece9e2; --muted:#9aa0aa; --line:#2a2e37; --accent:#ff6b6b; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; background: var(--bg); color: var(--fg); font-family: 'DM Sans', Arial, sans-serif; }
+
+.bar { display: flex; align-items: center; gap: 16px; padding: 10px 16px; border-bottom: 1px solid var(--line); }
+.bar .geri { color: var(--muted); text-decoration: none; font-size: 14px; white-space: nowrap; }
+.bar .geri:hover { color: var(--fg); }
+.baslik { flex: 1; min-width: 0; margin: 0; font: 400 16px/1.2 'Bricolage Grotesque', Arial, sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.baslik b { font-weight: 800; }
+.baslik span { color: var(--muted); }
+.gezinti { display: flex; align-items: center; gap: 8px; }
+.gezinti button { background: transparent; color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; font: 500 16px/1 'DM Sans', Arial, sans-serif; cursor: pointer; }
+.gezinti button:hover, .gezinti button:focus-visible { border-color: var(--accent); outline: none; }
+.gezinti button:disabled { opacity: .35; cursor: default; }
+#sayac { min-width: 64px; text-align: center; font: 500 14px 'JetBrains Mono', 'Courier New', monospace; color: var(--muted); }
+
+.sahne { position: relative; flex: 1; min-height: 220px; overflow: hidden; touch-action: pan-y; }
+.kayar { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform-origin: center center; }
+
+/* Slayt tuvali: 1920×1080, Claude Slides biçimi */
+.slide { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,.35); }
+.slide:not(.aktif) { display: none !important; }
+.slide *, .slide *::before, .slide *::after { box-sizing: border-box; margin: 0; }
+.slide img { display: block; }
+.slide ul, .slide ol { padding-left: 1.1em; }
+.slide a:focus-visible { outline: 3px solid #2F5BEA; outline-offset: 3px; }
+.slide.aktif { animation: belir .25s ease; }
+@keyframes belir { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .slide.aktif { animation: none; } }
+
+.ipucu { display: none; margin: 0; padding: 8px 16px; text-align: center; font-size: 13px; color: var(--muted); }
+@media (max-width: 700px) and (orientation: portrait) { .ipucu { display: block; } }
+
+.alt { padding: 10px 16px 14px; border-top: 1px solid var(--line); font-size: 13px; line-height: 1.5; color: var(--muted); }
+.alt p { margin: 0 0 4px; }
+.alt a { color: var(--fg); }
+
+body.tam .bar, body.tam .alt, body.tam .ipucu { display: none; }
+body.tam .slide { box-shadow: none; }
