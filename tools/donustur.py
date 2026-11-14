@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Claude Slides dışa aktarımını (project/deck.json + project/slides/*.html) tek sayfalık web sunumuna çevirir.
 
-    python3 tools/donustur.py <project klasörü> index.html
+    python3 tools/donustur.py <project klasörü> sunum/index.html
 
 - Konuşmacı notları (<aside>) çıkarılır.
 - Meme görselleri telif hakkı nedeniyle çıkarılır; şablon adı (alt metni) ve görselin üstündeki altyazılar
@@ -107,7 +107,7 @@ page = f"""<!doctype html>
 </head>
 <body>
 <header class="bar">
-  <a class="geri" href="https://miracbarisusta.com/rehberler/">← Rehberler</a>
+  <a class="geri" href="../">← Rehber</a>
   <p class="baslik"><b>Brain Rot mu?</b> <span>Dijital Çağda Gençlik</span></p>
   <nav class="gezinti" aria-label="Slaytlar">
     <button type="button" id="onceki" aria-label="Önceki slayt">←</button>
